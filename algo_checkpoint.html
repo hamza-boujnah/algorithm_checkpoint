@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Character Count</title>
+</head>
+<body>
+    <textarea id="inputSentence" rows="4" cols="50"> This is my checkpoint.</textarea>
+    <br>
+    <button onclick="countCharacters()">Count Characters</button>
+    <br>
+    <p>Uppercase letters: <span id="upperCount">0</span></p>
+    <p>Lowercase letters: <span id="lowerCount">0</span></p>
+    <p>Digits: <span id="digitCount">0</span></p>
+
+    <script>
+        function countCharacters() {
+            const inputSentence = document.getElementById("inputSentence").value;
+            let upperCount = 0;
+            let lowerCount = 0;
+            let digitCount = 0;
+
+            for (let i = 0; i < inputSentence.length; i++) {
+                const currentChar = inputSentence.charAt(i);
+                if (currentChar.match(/[A-Z]/)) {
+                    upperCount++;
+                } else if (currentChar.match(/[a-z]/)) {
+                    lowerCount++;
+                } else if (currentChar.match(/[0-9]/)) {
+                    digitCount++;
+                }
+            }
+
+            document.getElementById("upperCount").textContent = upperCount;
+            document.getElementById("lowerCount").textContent = lowerCount;
+            document.getElementById("digitCount").textContent = digitCount;
+        }
+    </script>
+</body>
+</html>
